@@ -12,7 +12,9 @@ app.get('/', (req, res) =>{
 
 //Exibindo todos os alunos
 app.get('/alunos',(req, res) =>{
-  res.send(`Exibindo todos os alunos`);
+  //res.send(`Exibindo todos os alunos`);
+  ler(res);
+
 });
 
 //Exibindo Um aluno
