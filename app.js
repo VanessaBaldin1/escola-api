@@ -15,22 +15,22 @@ app.get('/alunos',(req, res) =>{
 });
 
 //Exibindo Um aluno
-app.get('/alunos/1',(req, res) =>{
+app.get('/alunos/:id',(req, res) =>{
   res.send(`Exibindo dados de UM aluno`);
 });
 
 //Inserindo/Cadastrando/ um aluno
 app.post('/alunos',(req, res) =>{
-  res.send(`Exibindo todos os alunos`);
+  res.send(`Inserindo um alunos`);
 });
 
 //Atualizando aluno
-app.patch('alunos/1', (req, res) =>{
+app.patch('/alunos/:id', (req, res) =>{
     res.send(`Atulizando dados do aluno`);
 });
 
 //Excluindo aluno
-app.delete('alunos/1', (req,res) =>{
+app.delete('/alunos/:id', (req,res) =>{
   res.send(`Aluno excluido com sucesso!`);
 });
 
