@@ -1,4 +1,5 @@
 import express from 'express';
+import { ler } from './src/aluno.js';
 
 const app = express();
 const porta = 3000;

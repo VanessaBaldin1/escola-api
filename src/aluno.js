@@ -10,7 +10,7 @@ function ler(res){
   //Executando a query a partir da conexão
   conexao.query(sql, (erro, resultados) => {
 
-    if(resultado === 0){
+    if(resultados === 0){
         res.status(204).end();
         return; //forçar a interrupção do código
     }
