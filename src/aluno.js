@@ -44,4 +44,30 @@ function inserir(aluno, res) {
   });
 }
 
-export { ler, inserir };
+//Função para exibir UM ALUNO
+
+function lerUM(id, res){
+  const sql = "SELECT * FROM alunos WHERE id = ?";
+
+  conexao.query(sql, id, (erro, resultados)=> {
+
+    //checando se há conteúdo
+    if(resultados === 0){
+      res.status(204).end();
+      return; //forçar a interrupção do codigo
+    }
+
+    //if para erro ou resultado
+
+    if(erro){
+      res.status(400).json(erro.code);
+    } else {
+      res.status(200).json(resultados);
+    }
+
+
+  });
+
+}
+
+export { ler, inserir, lerUM };
