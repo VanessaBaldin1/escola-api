@@ -1,5 +1,5 @@
 import express from 'express';
-import { ler, inserir } from './src/aluno.js';
+import { ler, inserir, lerUM, excluir } from './src/aluno.js';
 
 const app = express();
 const porta = 3000;
@@ -27,9 +27,16 @@ app.get('/alunos',(req, res) =>{
 
 //Exibindo Um aluno
 app.get('/alunos/:id',(req, res) =>{
-  res.send(`Exibindo dados de UM aluno`);
-  
-  //ler(res);
+  //res.send(`Exibindo dados de UM aluno`);
+ 
+  //capturando o ID que vem do endpoint
+
+  const id = parseInt(req.params.id);
+
+  //chamando a função
+  lerUM(id, res);
+
+
 });
 
 //Inserindo/Cadastrando/ um aluno
@@ -51,7 +58,13 @@ app.patch('/alunos/:id', (req, res) =>{
 
 //Excluindo aluno
 app.delete('/alunos/:id', (req,res) =>{
-  res.send(`Aluno excluido com sucesso!`);
+  //res.send(`Aluno excluido com sucesso!`);
+
+  //capturando o id
+  const id = parseInt(req.params.id);
+
+  excluir(id, res);
+
 });
 
 app.listen(porta, () =>{

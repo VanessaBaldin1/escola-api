@@ -70,4 +70,20 @@ function lerUM(id, res){
 
 }
 
-export { ler, inserir, lerUM };
+//função que excluir um aluno
+
+function excluir(id, res) {
+  const sql = "DELETE from alunos WHERE id = ?";
+
+  conexao.query(sql, id, (erro, resultados)=>{
+    if(erro){
+      res.status(400).json(erro.code);
+    } else {
+      res.status(200).json({"status" : "Aluno excluido", id});
+    }
+
+  })
+}
+
+
+export { ler, inserir, lerUM, excluir };
