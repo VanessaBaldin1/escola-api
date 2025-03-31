@@ -1,8 +1,16 @@
 import express from 'express';
-import { ler } from './src/aluno.js';
+import { ler, inserir } from './src/aluno.js';
 
 const app = express();
 const porta = 3000;
+
+//habilitando para dar suporte ao formato JSON
+app.use(express.json());
+
+//habilitando para dar suporte a dados inseridos a partir de inputs de formulários
+
+app.use(express.urlencoded({extended:true}) );
+
 
 //Raiz da API
 
@@ -20,11 +28,20 @@ app.get('/alunos',(req, res) =>{
 //Exibindo Um aluno
 app.get('/alunos/:id',(req, res) =>{
   res.send(`Exibindo dados de UM aluno`);
+  
+  //ler(res);
 });
 
 //Inserindo/Cadastrando/ um aluno
 app.post('/alunos',(req, res) =>{
-  res.send(`Inserindo um alunos`);
+  //res.send(`Inserindo um alunos`);
+
+  //capturar os dados a partir do corpo da requisição
+  const novoAluno = req.body;
+
+  //executando a funação inserir e passando os parâmetro novoAluno e res
+  inserir(novoAluno, res);
+
 });
 
 //Atualizando aluno

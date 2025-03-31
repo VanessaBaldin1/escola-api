@@ -28,4 +28,20 @@ function ler(res){
 
 }
 
-export { ler };
+// Função para cadastrar alunos no banco (verifique "?")
+
+function inserir(aluno, res) {
+  const sql = "INSERT INTO alunos SET ?";
+
+  conexao.query(sql, aluno, (erro) => {
+    if(erro){
+      res.status(400).json(erro.code);
+    } else {
+      res.status(201).json({"status" : "aluno inserido!"});
+    }
+
+
+  });
+}
+
+export { ler, inserir };
