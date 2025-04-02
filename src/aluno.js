@@ -85,5 +85,20 @@ function excluir(id, res) {
   })
 }
 
+//função para atualizar dados de alunos
 
-export { ler, inserir, lerUM, excluir };
+function atualizar(id, aluno, res) {  
+    const sql = "UPDATE alunos SET ? WHERE id = ?";
+
+    conexao.query(sql, [aluno, id], (erro, resultados)=>{
+      if(erro){
+        res.status(400).json(erro.code);
+      } else {
+        res.status(200).json({aluno, id});
+      }
+  
+    })
+  
+}
+
+export { ler, inserir, lerUM, excluir, atualizar };
