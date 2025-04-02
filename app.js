@@ -61,6 +61,7 @@ app.patch('/alunos/:id', (req, res) =>{
    //pegando as informações do body
    const aluno = req.body;
 
+   atualizar(id, aluno, res);
 });
 
 //Excluindo aluno

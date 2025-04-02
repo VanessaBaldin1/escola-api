@@ -62,7 +62,7 @@ function lerUM(id, res){
     if(erro){
       res.status(400).json(erro.code);
     } else {
-      res.status(200).json(resultados);
+      res.status(200).json(resultados[0]);
     }
 
 
@@ -94,7 +94,9 @@ function atualizar(id, aluno, res) {
       if(erro){
         res.status(400).json(erro.code);
       } else {
-        res.status(200).json({aluno, id});
+
+        //...reticências é chamado de spread operator (operador de espalhamento de objeto)
+        res.status(200).json({...aluno, id});
       }
   
     })
