@@ -21,7 +21,8 @@ app.use(cors());
 //Raiz da API
 
 app.get('/', (req, res) =>{
- res.send(`API utilizando Node.js, Express e MySQL`);
+ //res.send(`API utilizando Node.js, Express e MySQL`);
+ res.redirect('https://documenter.getpostman.com/view/43562397/2sB2cSi4Cx');
 });
 
 //Exibindo todos os alunos
