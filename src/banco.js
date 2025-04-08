@@ -10,7 +10,7 @@ import mysql from 'mysql2'; //importando o módulo
 
 //CONEXÂO REMOTA
 const conexao = mysql.createConnection({
-  host:'localhost',
+  host:'db4free.net',
   user: 'vanessasenac252',
   password:'SenacPenha25',
   database: 'escola_api25'
